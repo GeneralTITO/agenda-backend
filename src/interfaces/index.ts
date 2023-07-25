@@ -11,8 +11,9 @@ import {
   UserUpdate,
   userReturn,
   UserRepo,
+  UserContacts,
 } from "./user.interfaces";
-
+import { SessionCreate, SessionReturn } from "./session.interfaces";
 export {
   ContactCreate,
   ContactUpdate,
@@ -24,4 +25,7 @@ export {
   UserUpdate,
   userReturn,
   UserRepo,
+  UserContacts,
+  SessionCreate,
+  SessionReturn,
 };

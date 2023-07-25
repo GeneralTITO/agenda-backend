@@ -1,23 +1,17 @@
 import "express-async-errors";
 import express, { Application, json } from "express";
-// import middlewares from "./middlewares";
-// import {
-//   categoryRouter,
-//   ingredientRouter,
-//   recipeRouter,
-//   sessionRouter,
-//   userRouter,
-// } from "./routers";
+import middlewares from "./middlewares";
+import { userRouter } from "./routers";
+import { sessionRouter } from "./routers/session.router";
+import { contactRouter } from "./routers/contact.router";
 
 const app: Application = express();
 app.use(json());
 
-// app.use("/users", userRouter);
-// app.use("/login", sessionRouter);
-// app.use("/categories", categoryRouter);
-// app.use("/ingredients", ingredientRouter);
-// app.use("/recipes", recipeRouter);
+app.use("/users", userRouter);
+app.use("/login", sessionRouter);
+app.use("/contact", contactRouter);
 
-// app.use(middlewares.handleError);
+app.use(middlewares.handleError);
 
 export default app;

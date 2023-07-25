@@ -3,6 +3,7 @@ import {
   userReturnSchema,
   userSchema,
   userUpdateSchema,
+  userContactSchema,
 } from "./user.schemas";
 import {
   contactSchema,
@@ -10,7 +11,8 @@ import {
   contactUpdateSchema,
   contactReadSchema,
 } from "./contact.schemas";
-
+import { sessionSchema } from "./session.schemas";
+sessionSchema
 export {
   contactSchema,
   contactCreateSchema,
@@ -20,4 +22,6 @@ export {
   userReturnSchema,
   userSchema,
   userUpdateSchema,
+  userContactSchema,
+  sessionSchema
 };
