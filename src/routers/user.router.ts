@@ -1,6 +1,6 @@
 import { Router } from "express";
 import middlewares from "../middlewares";
-import { userCreateSchema } from "../schemas";
+import { userCreateSchema, userUpdateSchema } from "../schemas";
 import { userControllers } from "../controllers";
 
 export const userRouter: Router = Router();
@@ -17,6 +17,14 @@ userRouter.get(
   middlewares.verifyToken,
   middlewares.isOrOwner,
   userControllers.read
+);
+userRouter.patch(
+  "/:id",
+  middlewares.idExists,
+  middlewares.verifyToken,
+  middlewares.isOrOwner,
+  middlewares.validateBody(userUpdateSchema),
+  userControllers.update
 );
 userRouter.delete(
   "/:id",

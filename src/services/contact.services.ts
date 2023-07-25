@@ -13,18 +13,6 @@ const create = async (
   await contactRepository.save(contact);
   return contactSchema.parse(contact);
 };
-// const read = async (userId: number): Promise<ContactRead> => {
-//   const contacts = await contactRepository.find({
-//     where: { user: user },
-//     relations: { contacts: true },
-//   });
-//   console.log(user);
-//   return userContactSchema.parse(user);
-// };
-// const update = async (): Promise => {
-//   return;
-// };
-
 // const update = async (contactId: number): Promise<ContactReturn> => {
 //   return;
 // };
