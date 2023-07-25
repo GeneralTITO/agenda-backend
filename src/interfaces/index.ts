@@ -13,7 +13,7 @@ import {
   UserRepo,
   UserContacts,
 } from "./user.interfaces";
-
+import { SessionCreate, SessionReturn } from "./session.interfaces";
 export {
   ContactCreate,
   ContactUpdate,
@@ -26,4 +26,6 @@ export {
   userReturn,
   UserRepo,
   UserContacts,
+  SessionCreate,
+  SessionReturn,
 };

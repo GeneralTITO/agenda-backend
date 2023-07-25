@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import userServices from "../services/user.services";
+import { userServices } from "../services";
 import { UserContacts, userReturn } from "../interfaces";
 
 const create = async (req: Request, res: Response): Promise<Response> => {

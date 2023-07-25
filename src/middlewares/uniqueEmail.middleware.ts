@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { User } from "../entities";
-import { userRepository } from "../repositories";
+import { Contact, User } from "../entities";
+import { contactRepository, userRepository } from "../repositories";
 import { AppError } from "../errors";
 
 export const uniqueEmail = async (
@@ -12,7 +12,11 @@ export const uniqueEmail = async (
   if (!email) return next();
 
   const foundEntity: User | null = await userRepository.findOneBy({ email });
-  if (foundEntity) throw new AppError("Email already exists", 409);
+  const foundEntityContact: Contact | null = await contactRepository.findOneBy({
+    email,
+  });
+  if (foundEntity || foundEntityContact)
+    throw new AppError("Email already exists", 409);
 
   return next();
 };

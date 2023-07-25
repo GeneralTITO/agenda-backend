@@ -11,7 +11,8 @@ import {
   contactUpdateSchema,
   contactReadSchema,
 } from "./contact.schemas";
-
+import { sessionSchema } from "./session.schemas";
+sessionSchema
 export {
   contactSchema,
   contactCreateSchema,
@@ -22,4 +23,5 @@ export {
   userSchema,
   userUpdateSchema,
   userContactSchema,
+  sessionSchema
 };

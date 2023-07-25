@@ -1,7 +1,23 @@
 import { Router } from "express";
+import middlewares from "../middlewares";
+import { contactControllers } from "../controllers";
+import { contactCreateSchema } from "../schemas";
 
 export const contactRouter: Router = Router();
 
-contactRouter.post("");
+contactRouter.post(
+  "",
+  middlewares.validateBody(contactCreateSchema),
+  middlewares.uniqueEmail,
+  middlewares.verifyToken,
+
+  contactControllers.create
+);
+
 contactRouter.get("");
-contactRouter.delete("/:id");
+contactRouter.delete(
+  "/:id",
+  middlewares.verifyToken,
+  middlewares.isContactOwner,
+  contactControllers.destroy
+);
