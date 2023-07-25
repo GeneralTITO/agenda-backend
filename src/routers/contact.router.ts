@@ -1,7 +1,7 @@
 import { Router } from "express";
 import middlewares from "../middlewares";
 import { contactControllers } from "../controllers";
-import { contactCreateSchema } from "../schemas";
+import { contactCreateSchema, contactUpdateSchema } from "../schemas";
 
 export const contactRouter: Router = Router();
 
@@ -20,4 +20,11 @@ contactRouter.delete(
   middlewares.verifyToken,
   middlewares.isContactOwner,
   contactControllers.destroy
+);
+contactRouter.patch(
+  "/:id",
+  middlewares.verifyToken,
+  middlewares.isContactOwner,
+  middlewares.validateBody(contactUpdateSchema),
+  contactControllers.update
 );
