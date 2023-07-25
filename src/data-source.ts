@@ -6,8 +6,7 @@ import { DataSource, DataSourceOptions } from "typeorm";
 const dataSourceConfig = (): DataSourceOptions => {
   const entitiesPath: string = path.join(__dirname, "./entities/**.{ts,js}");
   const migrationPath: string = path.join(__dirname, "./migrations/**.{ts,js}");
-  console.log(process.env.DATABASE_URL);
-  console.log(process.env.PORT);
+
   const nodeEnv: string | undefined = process.env.NODE_ENV;
 
   if (nodeEnv === "test") {
@@ -22,7 +21,8 @@ const dataSourceConfig = (): DataSourceOptions => {
   const dbUrl: string | undefined = process.env.DATABASE_URL;
 
   if (!dbUrl) throw new Error("Missing env var: 'DATABASE_URL'");
-
+  console.log("ola");
+  console.log(dbUrl);
   return {
     type: "postgres",
     url: dbUrl,

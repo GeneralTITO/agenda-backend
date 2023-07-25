@@ -5,6 +5,7 @@ const userSchema = z.object({
   id: z.number().positive(),
   name: z.string().max(250),
   email: z.string().email().max(100),
+  phone: z.string().max(20),
   password: z.string().max(100),
   createdAt: z.string().or(z.date()),
   updatedAt: z.string().or(z.date()),
@@ -20,8 +21,14 @@ const userCreateSchema = userSchema.omit({
 const userReturnSchema = userSchema.omit({ password: true });
 const userUpdateSchema = userCreateSchema.partial();
 
-const userContactSchema  = userReturnSchema.extend({
-  contacts: contactSchema
-})
+const userContactSchema = userReturnSchema.extend({
+  contacts: contactSchema.array(),
+});
 
-export { userSchema, userCreateSchema, userReturnSchema, userUpdateSchema };
+export {
+  userSchema,
+  userCreateSchema,
+  userReturnSchema,
+  userUpdateSchema,
+  userContactSchema,
+};

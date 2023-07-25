@@ -11,6 +11,7 @@ import {
   UserUpdate,
   userReturn,
   UserRepo,
+  UserContacts,
 } from "./user.interfaces";
 
 export {
@@ -24,4 +25,5 @@ export {
   UserUpdate,
   userReturn,
   UserRepo,
+  UserContacts,
 };

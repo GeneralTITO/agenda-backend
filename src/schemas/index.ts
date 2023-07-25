@@ -3,6 +3,7 @@ import {
   userReturnSchema,
   userSchema,
   userUpdateSchema,
+  userContactSchema,
 } from "./user.schemas";
 import {
   contactSchema,
@@ -20,4 +21,5 @@ export {
   userReturnSchema,
   userSchema,
   userUpdateSchema,
+  userContactSchema,
 };

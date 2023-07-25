@@ -1,20 +1,21 @@
-import { UserCreate, userReturn } from "../interfaces";
+import { UserContacts, UserCreate, UserRead, userReturn } from "../interfaces";
 import { User } from "../entities";
 
 import { userRepository } from "../repositories";
-import { userReturnSchema } from "../schemas";
+import { userContactSchema, userReturnSchema } from "../schemas";
 
 const create = async (payload: UserCreate): Promise<userReturn> => {
   const user: User = userRepository.create(payload);
   await userRepository.save(user);
   return userReturnSchema.parse(user);
 };
-const read = async (userId: number): Promise<userReturn> => {
-  const user = userRepository.findOne({
+const read = async (userId: number): Promise<UserContacts> => {
+  const user =await userRepository.findOne({
     where: { id: userId },
     relations: { contacts: true },
   });
-  return userReturnSchema.parse(user);
+  console.log(user)
+  return userContactSchema.parse(user);
 };
 // const update = async (): Promise => {
 //   return;
