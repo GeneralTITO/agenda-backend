@@ -26,7 +26,7 @@ const create = async ({
     expiresIn: process.env.EXPIRES_IN!,
   });
 
-  return { token };
+  return { token: token, user_id: foundUser.id };
 };
 
 export default { create };
