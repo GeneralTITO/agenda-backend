@@ -21,7 +21,6 @@ const read = async (userId: number): Promise<UserContacts> => {
     where: { id: userId },
     relations: { contacts: true },
   });
-  console.log(user);
   return userContactSchema.parse(user);
 };
 
